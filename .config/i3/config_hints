@@ -1,6 +1,6 @@
 # there will be one, just configure:
 # android-studio, intellij idea, libreoffice, firefox???, pacmanfm-qt/dolphin
-# fish, alacritty, clipit, i3, i3lock-fancy, git, polybarm, some screenshot tool, chromium 
+# fish, alacritty, clipit, i3, i3lock-fancy, git, polybarm, some screenshot tool, chromium, flatpak
 
 # to use the best kb layout
 # exec "setxkbmap us -variant colemak"
