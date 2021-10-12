@@ -2,4 +2,6 @@
 # fish, alacritty, clipit, i3 stuff, some screenshot tool, chromium and other stuff
 
 # to use the best kb layout
-exec "setxkbmap us -variant colemak"
+# exec "setxkbmap us -variant colemak"
+exec --no-startup-id "setxkbmap -model pc104 -layout us -variant colemak, ru -option grp:alt_shift_toggle"
+# TODO: change to win+space
