@@ -1,8 +1,0 @@
-# there will be one, just configure:
-# android-studio, intellij idea, libreoffice, pacmanfm-qt/dolphin
-# fish, alacritty, clipit, i3, i3lock-fancy, git, polybarm, some screenshot tool, chromium, flatpak
-
-# to use the best kb layout
-exec --no-startup-id setxkbmap -model pc104 -layout us,ru -variant colemak, -option 'grp:alt_shift_toggle'
-# TODO: change to win+space
-# TODO: switch to awesome wm
