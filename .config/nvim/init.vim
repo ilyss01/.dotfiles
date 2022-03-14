@@ -1,2 +1,2 @@
 colorscheme NeoSolarized
-
+set number
