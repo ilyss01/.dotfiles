@@ -6,9 +6,11 @@ SETUVAR _fish_abbr_cdd:cd\x20\x7e/dotfiles/
 SETUVAR _fish_abbr_compile:clang\x20\x2dlm\x20\x2a\x20\x26\x26\x20\x2e/a\x2eout
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_i3c:nvim\x20\x7e/\x2econfig/i3/config
-SETUVAR _fish_abbr_install:sudo\x20paru\x20\x2dS
-SETUVAR _fish_abbr_orphans:sudo\x20paru\x20\x2dQtdq\x20\x7c\x20sudo\x20paru\x20\x2dRns\x20\x2d
-SETUVAR _fish_abbr_pS:sudo\x20paru\x20\x2dS
+SETUVAR _fish_abbr_orphans:paru\x20\x2dQtdq\x20\x7c\x20paru\x20\x2dRns\x20\x2d
+SETUVAR _fish_abbr_pR:paru\x20\x2dR
+SETUVAR _fish_abbr_pS:paru\x20\x2dS
+SETUVAR _fish_abbr_pSyu:paru\x20\x2dSyu
+SETUVAR _fish_abbr_swayc:nvim\x20\x7e/\x2econfig/sway/config
 SETUVAR _fish_abbr_update:sudo\x20paru\x20\x2dSyu
 SETUVAR _fish_abbr_webcam:swallow\x20mpv\x20av\x3a//v4l2\x3a/dev/video0\x20\x2d\x2dprofile\x3dlow\x2dlatency\x20\x2d\x2duntimed
 SETUVAR fish_color_autosuggestion:586e75
