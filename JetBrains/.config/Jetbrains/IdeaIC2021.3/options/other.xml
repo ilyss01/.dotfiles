@@ -1,0 +1,44 @@
+<application>
+  <component name="DynamicPluginEnabler">
+    <trackers>
+      <map>
+        <entry key="26HcdojucMlUysdImXUekcA4EmC">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+        <entry key="26HclYSwYUaFrzyhVnVkZvcjR5I">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+        <entry key="Default (Template) Project">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="MarketplacePluginsSearchHistory" value="/tag:Keymap" />
+    <property name="NextRunPlatformUpdateBuild" value="IC-213.7172.25/2021.3.3" />
+    <property name="NextRunPlatformUpdateVersion" value="2021.3.3" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="PluginConfigurable.selectionTab" value="1" />
+    <property name="appcds.runOnSecondStart" value="IC-213.6777.52-4bf64fa452bf9a623ed8d468ececfd1f8291f2b0d476ca497bc33a38fcce76db" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="bundled.plugins.list.saved.version" value="IC-213.6777.52" />
+    <property name="eclipse.projects.detected" value="" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/Downloads/ЛК2_Задание2_Романюк.md&#10;/home/ilyss/Downloads/ЛК2_Задание2_Романюк.txt" />
+    <property name="fileTypeChangedCounter" value="2" />
+    <property name="fileTypeDetectors" value="com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector" />
+    <property name="ide.memory.adjusted" value="true" />
+    <property name="ide.updates.whats.new.shown.for" value="213" />
+    <property name="installed.kotlin.plugin.version" value="213-1.6.10-release-961-IJ6777.52" />
+    <property name="kotlin.plugin.releaseDate" value="213-1.6.10-release-961-IJ6777.52:2022-02-10" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/ЛК2_Задание2_Романюк.md" />
+    <property name="registry.to.advanced.settings.migration.build" value="IC-213.6777.52" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+</application>

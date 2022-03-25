@@ -1,0 +1,13 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="WelcomeScreen.OpenProject">
+      <i c="2" l="1647084092072" />
+    </e>
+    <e n="com.intellij.ide.ReopenProjectAction">
+      <i c="1" l="1647084088573" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$4">
+      <i c="1" l="1648211119913" />
+    </e>
+  </component>
+</application>
