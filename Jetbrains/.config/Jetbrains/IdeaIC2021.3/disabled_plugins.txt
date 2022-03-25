@@ -1,0 +1,23 @@
+AntSupport
+ByteCodeViewer
+Coverage
+DevKit
+Lombook Plugin
+Subversion
+com.android.tools.idea.smali
+com.intellij.completion.ml.ranking
+com.intellij.copyright
+com.intellij.java-i18n
+com.intellij.searcheverywhere.ml
+com.intellij.tasks
+com.intellij.uiDesigner
+com.jetbrains.changeReminder
+hg4idea
+org.intellij.groovy
+org.intellij.intelliLang
+org.jetbrains.android
+org.jetbrains.debugger.streams
+org.jetbrains.idea.eclipse
+org.jetbrains.idea.maven
+org.jetbrains.java.decompiler
+org.jetbrains.settingsRepository

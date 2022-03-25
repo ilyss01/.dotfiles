@@ -6,13 +6,14 @@ font pango:ubuntu 8
 # Autostart 
 workspace 1 output HDMI-A-1
 workspace 2 output eDP-1
+exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
+exec ~/.config/sway/ryzen.sh
 exec gammastep
 exec --no-startup-id dex --autostart --environment i3
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock
+exec swayidle -w timeout 300 'swaylock -f -c 002b36' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 002b36'
 exec wl-paste -t text --watch clipman store --no-persist
-exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000
-exec --no-startup-id nm-applet
-input * {
+exec --no-startup-id 'nm-applet --indicator'
+input * { 
     xkb_layout "us,ru"
     xkb_variant "colemak,"
     xkb_options "grp:alt_shift_toggle"
@@ -36,7 +37,7 @@ output "HDMI-A-1" {
     adaptive_sync off
     dpms on
 }
-output HDMI-1 mode 1920x1080 pos 1920 0 bg ~/Pictures/Wallpaper/Retro.jpg stretch
+# output HDMI-1 mode 1920x1080 pos 1920 0 bg ~/Pictures/Wallpaper/Retro.jpg stretch
 gaps inner 5
 gaps outer 5
 default_border pixel 2
