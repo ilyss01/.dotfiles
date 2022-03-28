@@ -21,11 +21,10 @@
     </trackers>
   </component>
   <component name="PropertiesComponent">
-    <property name="MarketplacePluginsSearchHistory" value="/tag:Keymap" />
+    <property name="MarketplacePluginsSearchHistory" value="solarized&#10;/tag:Keymap" />
     <property name="NextRunPlatformUpdateBuild" value="IC-213.7172.25/2021.3.3" />
     <property name="NextRunPlatformUpdateVersion" value="2021.3.3" />
     <property name="NonModalCommitCustomization.IsApplied" value="true" />
-    <property name="PluginConfigurable.selectionTab" value="1" />
     <property name="appcds.runOnSecondStart" value="IC-213.6777.52-4bf64fa452bf9a623ed8d468ececfd1f8291f2b0d476ca497bc33a38fcce76db" />
     <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
     <property name="bundled.plugins.list.saved.version" value="IC-213.6777.52" />

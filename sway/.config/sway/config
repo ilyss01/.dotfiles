@@ -37,7 +37,8 @@ output "HDMI-A-1" {
     adaptive_sync off
     dpms on
 }
-# output HDMI-1 mode 1920x1080 pos 1920 0 bg ~/Pictures/Wallpaper/Retro.jpg stretch
+set $wallpapers_path $HOME/Pictures/Wallpaper/
+output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 gaps inner 5
 gaps outer 5
 default_border pixel 2
@@ -67,10 +68,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec "wofi -S drun"
 
 # Change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -79,10 +80,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -91,10 +92,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+z split h
 
 # Split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+x split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -150,11 +151,14 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Restart sway inplace 
 bindsym $mod+Shift+r reload
 
+# Lock screen
+# bindsym $mod+s swaylock -f -c 002b36
+
 # Exit sway (logs you out of your session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit?' -B 'Reboot' 'sudo reboot' -B 'Shutdown' 'sudo shutdown now' 
 
 # Resize window (you can also use the mouse for that)
-mode "resize" {
+mode "Resize" {
         # These bindings trigger as soon as you enter the resize mode
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
@@ -173,7 +177,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
 
 bar {
 	position top 
