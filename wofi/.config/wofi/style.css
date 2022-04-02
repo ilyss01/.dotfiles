@@ -1,4 +1,6 @@
 window {
+	font-family: ubuntu;
+	font-size: 16px;
 	background-color: #002b36;
 	color: #93a1a1;
 }
@@ -17,6 +19,8 @@ window {
 }
 
 #input {
+	font-family: ubuntu;
+	font-size: 16px;
 	background-color: #073642;
 	color: #839496;
 	border-color: #586e75; 

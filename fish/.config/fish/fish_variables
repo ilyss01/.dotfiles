@@ -5,6 +5,9 @@ SETUVAR _fish_abbr_cdc:cd\x20\x7e/\x2econfig/
 SETUVAR _fish_abbr_cdd:cd\x20\x7e/dotfiles/
 SETUVAR _fish_abbr_clang:clang\x20\x2dstd\x3dc17\x20\x2dlm
 SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_imv:swallow\x20imv
+SETUVAR _fish_abbr_ls:exa
+SETUVAR _fish_abbr_mpv:swallow\x20mpv
 SETUVAR _fish_abbr_orphans:paru\x20\x2dQtdq\x20\x7c\x20paru\x20\x2dRns\x20\x2d
 SETUVAR _fish_abbr_pR:paru\x20\x2dR
 SETUVAR _fish_abbr_pS:paru\x20\x2dS
