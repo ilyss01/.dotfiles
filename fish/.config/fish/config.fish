@@ -1,6 +1,7 @@
 function fish_greeting
 end
 
+export PATH="$HOME/.emacs.d/bin:$PATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
 set -gx EDITOR nvim
 

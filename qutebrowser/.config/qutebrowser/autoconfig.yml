@@ -10,6 +10,10 @@ settings:
     global: true
   backend:
     global: webengine
+  bindings.commands:
+    global:
+      normal:
+        ',m': spawn mpv {url}
   colors.webpage.preferred_color_scheme:
     global: auto
   content.autoplay:
