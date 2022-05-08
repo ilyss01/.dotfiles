@@ -24,7 +24,8 @@ input * {
     xkb_layout "us,ru"
     xkb_variant "colemak,"
     xkb_options "grp:alt_shift_toggle"
-}
+    tap enabled
+}   
 input <identifier> xkb_model "pc101"
 
 # Screen setup
@@ -194,7 +195,7 @@ bindsym $mod+r mode "Resize"
 
 bar {
 	position top
-	status_command 'waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css -l off'
+	status_command 'waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css'
 }
 
 # Colors for solarized
