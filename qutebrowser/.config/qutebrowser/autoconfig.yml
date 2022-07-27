@@ -14,14 +14,16 @@ settings:
     global:
       normal:
         ',m': spawn mpv {url}
+  colors.webpage.darkmode.enabled:
+    global: false
   colors.webpage.preferred_color_scheme:
     global: auto
   content.autoplay:
     global: false
   content.blocking.method:
-    global: auto
-  content.media.audio_capture:
-    https://discord.com: true
+    global: both
+  content.geolocation:
+    https://www.google.com: false
   content.notifications.enabled:
     global: false
   content.pdfjs:
@@ -29,7 +31,7 @@ settings:
   content.plugins:
     global: true
   content.register_protocol_handler:
-    https://mail.yandex.ru?mailto=%25s: true
+    https://mail.yandex.ru?mailto=%25s: false
   downloads.location.directory:
     global: ~/Downloads
   scrolling.smooth:
@@ -38,3 +40,10 @@ settings:
     global:
     - ru-RU
     - en-US
+  statusbar.show:
+    global: never
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      aw: https://wiki.archlinux.org/?search={}
+      g: https://www.google.com/search?q={}

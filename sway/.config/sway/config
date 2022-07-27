@@ -1,32 +1,69 @@
 # i3 config file (v4)
 # -> sway config file (vidk)
 set $mod Mod4
-font pango:ubuntu 8
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+set $menu wofi -S drun
+font pango: ubuntu 8
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# ALARM
+#!!!!!!!!!!!!!!!!!
+#xwayland disable
 
 # Workspace setup
 workspace 1 output HDMI-A-1
 workspace 2 output eDP-1
 
-# Autostart thingy
+# Autostart 
 exec dex --autostart --environment i3
-exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY \
+					XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec wl-paste -t text --watch clipman store --no-persist
-exec nm-applet --indicator
-exec blueman-applet
 exec ~/.config/sway/ryzen.sh
 exec gammastep
 
+# Bar
+exec waybar
+exec --no-startup-id 'nm-applet --indicator'
+exec --no-startup-id blueman-applet
+
+
 # Swaylock and swayidle setup
-exec swayidle -w timeout 300 'swaylock -f -c 002b36' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 002b36'
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 002b36' \
+	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 002b36'
 
 # Keyboard setup
-input * { 
+input type:keyboard {
     xkb_layout "us,ru"
     xkb_variant "colemak,"
     xkb_options "grp:alt_shift_toggle"
+}
+
+# Touchpad setup
+input type:touchpad { 
     tap enabled
 }   
-input <identifier> xkb_model "pc101"
+seat * hide_cursor 180000
 
 # Screen setup
 output "eDP-1" {
@@ -38,6 +75,7 @@ output "eDP-1" {
     adaptive_sync off
     dpms on
 }
+
 output "HDMI-A-1" {
     mode 1920x1080@60.0Hz
     pos 0 0
@@ -70,22 +108,22 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier $mod normal
 
 # Start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $term
 
 # Kill focused window
-bindsym $mod+Shift+q kill
+bindsym --to-code $mod+Shift+q kill
 
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec "wofi -S drun"
+bindsym $mod+d exec $menu
 
 # Change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right 
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -94,10 +132,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right 
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -105,38 +143,23 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Split in horizontal orientation
-bindsym $mod+z split h
-
-# Split in vertical orientation
-bindsym $mod+x split v
+# Layout
+bindsym --to-code $mod+z splith
+bindsym --to-code $mod+x splitv 
 
 # Enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen 
 
 # Change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle split 
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
 # Screenshot scipt, copied from sway wiki
 bindsym --release $mod+Shift+s exec ~/.config/sway/screenshot.sh copy area
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -163,40 +186,33 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Restart sway inplace 
-bindsym $mod+Shift+r reload
+bindsym	$mod+Shift+r reload
 
 # Lock screen
-#bindsym $mod+l swaylock -f -c 002b36
+bindsym --to-code $mod+q exec swaylock -f -c 002b36
 
 # Exit sway 
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit?' -B 'Reboot' 'sudo reboot' -B 'Shutdown' 'sudo shutdown now' 
+bindsym	$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit?' -B 'Reboot' 'sudo reboot' -B 'Shutdown' 'sudo shutdown now' 
 
 # Resize window (you can also use the mouse for that)
 mode "Resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Resize windows
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
 
-        # Same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
 
-        # Back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "Resize"
-
-bar {
-	position top
-	status_command 'waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css'
-}
 
 # Colors for solarized
 # TODO: make a switch for nord theme or any other theme
@@ -206,3 +222,5 @@ client.focused             #1793D0   #1793D0    #FFFFFF
 client.focused_inactive    #000000   #333333    #FFFFFF
 client.unfocused           #000000   #333333    #FFFFFF
 client.urgent              #FF0000   #FF0000    #FF0000
+
+include /etc/sway/config.d/*

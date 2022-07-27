@@ -142,7 +142,6 @@ fi
 if [ "$ACTION" = "copy" ] ; then
   takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
   notifyOk "$WHAT copied to buffer"
-else
   if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"; then
     TITLE="Screenshot of $SUBJECT"
     MESSAGE=$(basename "$FILE")

@@ -1,9 +1,10 @@
 function fish_greeting
 end
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
-set -gx EDITOR nvim
+export XDG_CURRENT_DESKTOP=sway
+export EDITOR=nvim
+export MOZ_ENABLE_WAYLAND=1
 
 # Start X at login
 if status --is-interactive
