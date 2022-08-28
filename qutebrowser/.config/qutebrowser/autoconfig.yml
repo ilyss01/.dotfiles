@@ -39,11 +39,10 @@ settings:
   spellcheck.languages:
     global:
     - ru-RU
-    - en-US
+    - en-GB
   statusbar.show:
     global: never
   url.searchengines:
     global:
-      DEFAULT: https://duckduckgo.com/?q={}
+      DEFAULT: https://www.google.com/search?q={}
       aw: https://wiki.archlinux.org/?search={}
-      g: https://www.google.com/search?q={}

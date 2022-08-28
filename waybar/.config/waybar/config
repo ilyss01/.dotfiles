@@ -1,31 +1,47 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
-    "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["sway/workspaces"],
-    // "modules-center": ["sway/window"],
-    // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "backlight", "keyboard-state", "sway/language", "battery", "clock", "tray"],
+    "layer": "top", 
+    "position": "top", // top|bottom|left|right
+    "height": 18, 
+    "spacing": 4, // gaps between modules 
+
+    "modules-left": [
+    	"sway/workspaces"
+    ],
+    "modules-center": [
+    	"sway/window"
+    ],
+    "modules-right": [
+    "pulseaudio", 
+    "cpu", 
+    "memory", 
+    "backlight", 
+    "keyboard-state", 
+    "sway/language", 
+    "battery", 
+    "clock", 
+    "tray"],
+
+    // MODULES //
 
     "tray": {
         // "icon-size": 21,
         "spacing": 10
-    },
+    }, 
 
     "clock": {
-        // "timezone": "America/New_York",
+        "timezone": "Europe/Moscow",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%d/%m/%Y}"
     },
 
+
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": true
     },
 
     "memory": {
-        "format": "{}% "
+        "format": "{}% "
     },
 
     "backlight": {
@@ -66,9 +82,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol-qt"
     },
         "escape": true,
-    }
+    },
 }
-

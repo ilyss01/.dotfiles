@@ -1,31 +1,26 @@
 window {
-	font-family: ubuntu;
-	font-size: 16px;
-	background-color: #002b36;
-	color: #93a1a1;
-}
-
-#entry:nth-child(odd) {
-	background-color: #002b36;
-}
-
-#entry:nth-child(even) {
-	/* background-color: #073642; */
-	 background-color: #002b36;
-}
-
-#entry:selected {
-	background-color: #586e75;
+    font-family: "Ubuntu";
+    font-weight: bold;
+    background-color: #002b36;
+    color: #93a1a1;
 }
 
 #input {
-	font-family: ubuntu;
-	font-size: 16px;
-	background-color: #073642;
-	color: #839496;
-	border-color: #586e75; 
+    border: none;
+    background-color: #002b36;
 }
 
-#input:focus {
-	border-color: #b58900; 
+#outer-box {
+    margin: 10px;
+    background-color: #002b36;
+}
+
+#scroll {
+    margin: 5px 0px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+#scroll label {
+    margin: 2px 0px;
 }

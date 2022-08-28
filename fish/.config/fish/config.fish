@@ -2,9 +2,9 @@ function fish_greeting
 end
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_CURRENT_DESKTOP=sway
 export EDITOR=nvim
 export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Start X at login
 if status --is-interactive

@@ -31,6 +31,8 @@ alias envvc="nvim ~/.config/environment.d/envvars.conf"
 alias swayc="nvim ~/.config/sway/config"
 alias waybarc="nvim ~/.config/waybar/config"
 alias zshc="nvim ~/.zshrc"
+alias n=nvim
+alias py=python
 # Swayhide aliases
 alias imv="swayhide imv"
 alias mpv="swayhide mpv"

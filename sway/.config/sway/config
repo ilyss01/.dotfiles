@@ -27,8 +27,8 @@ set $ws10 "10"
 #xwayland disable
 
 # Workspace setup
-workspace 1 output HDMI-A-1
-workspace 2 output eDP-1
+#workspace 1 output HDMI-A-1
+#workspace 2 output eDP-1
 
 # Autostart 
 exec dex --autostart --environment i3
@@ -44,7 +44,6 @@ exec gammastep
 exec waybar
 exec --no-startup-id 'nm-applet --indicator'
 exec --no-startup-id blueman-applet
-
 
 # Swaylock and swayidle setup
 exec swayidle -w \
@@ -144,8 +143,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Layout
-bindsym --to-code $mod+z splith
-bindsym --to-code $mod+x splitv 
+bindsym --to-code $mod+x splith
+bindsym --to-code $mod+z splitv 
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen 
@@ -185,6 +184,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# alt-tab functionality
+bindsym alt+tab workspace next_on_output 
+
 # Restart sway inplace 
 bindsym	$mod+Shift+r reload
 
@@ -192,7 +194,8 @@ bindsym	$mod+Shift+r reload
 bindsym --to-code $mod+q exec swaylock -f -c 002b36
 
 # Exit sway 
-bindsym	$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit?' -B 'Reboot' 'sudo reboot' -B 'Shutdown' 'sudo shutdown now' 
+bindsym $mod+Escape exec wlogout
+#bindsym	$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit?' -B 'Reboot' 'sudo reboot' -B 'Shutdown' 'sudo shutdown now' 
 
 # Resize window (you can also use the mouse for that)
 mode "Resize" {
