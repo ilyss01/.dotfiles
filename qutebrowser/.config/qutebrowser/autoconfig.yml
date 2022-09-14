@@ -44,5 +44,4 @@ settings:
     global: never
   url.searchengines:
     global:
-      DEFAULT: https://www.google.com/search?q={}
-      aw: https://wiki.archlinux.org/?search={}
+      DEFAULT: https://duckduckgo.com/?q={}

@@ -35,8 +35,9 @@ alias n=nvim
 alias py=python
 # Swayhide aliases
 alias imv="swayhide imv"
-alias mpv="swayhide mpv"
+#alias mpv="swayhide mpv"
 alias zathura="swayhide zathura"
+alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
 
 # Autoexec sway
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
