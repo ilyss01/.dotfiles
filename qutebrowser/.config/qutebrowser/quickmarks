@@ -1,10 +1,4 @@
 vim-as-ide https://her.esy.fun/Scratch/en/blog/Vim-as-IDE/
-cli-guideline https://clig.dev/
-vim-cheatsheet https://vim.rtorr.com/lang/en_us
 c-code-standart https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html
 library https://z-lib.org/
 vim.rc-guide https://gist.github.com/mendeza/e0c4fbb5592ad52f5eca77ed5873a46b
-rust-core https://doc.rust-lang.org/std/#modules
-rust-resources https://serokell.io/blog/learn-rust
-modern-unix https://github.com/ibraheemdev/modern-unix
-rust-unix https://lib.rs/os/unix-apis

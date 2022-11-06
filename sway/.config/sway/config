@@ -26,8 +26,8 @@ set $ws10 "10"
 #
 # Workspace setup
 #
-#workspace 1 output HDMI-A-1
-#workspace 2 output eDP-1
+workspace 1 output HDMI-A-1
+workspace 2 output eDP-1
 
 #
 # Autostart 

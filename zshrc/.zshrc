@@ -11,6 +11,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=nvim
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export PATH=/home/ilyss/.local/bin/:$PATH
 
 # Export application files
 export EDITOR="nvim"
@@ -21,10 +22,13 @@ alias ls=exa
 alias cdc="cd ~/.config/"
 alias cdd="cd ~/dotfiles/"
 # Paru aliases
-alias pS="sudo paru -S"
-alias pR="sudo paru -R"
-alias pSyu="sudo paru -Syu"
-alias pOrphan="sudo paru -Qtdq | sudo paru -Rns -"
+alias pS="sudo pacman -S"
+alias pR="sudo pacman -R"
+alias pSyu="sudo pacman -Syu"
+alias pOrphan="sudo pacman -Qtdq | sudo pacman -Rns -"
+alias aurS="paru -S"
+alias aurSyu="paru -Syu"
+alias aurR="paru -R"
 # Comfortable access to configs
 alias alacc="nvim ~/.config/alacritty/alacritty.yml"
 alias envvc="nvim ~/.config/environment.d/envvars.conf"
