@@ -13,6 +13,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        ',M': hint links spawn mpv {hint-url}
         ',m': spawn mpv {url}
   colors.webpage.darkmode.enabled:
     global: false
@@ -33,7 +34,7 @@ settings:
   content.register_protocol_handler:
     https://mail.yandex.ru?mailto=%25s: false
   downloads.location.directory:
-    global: ~/Downloads
+    global: ~/downloads
   scrolling.smooth:
     global: true
   spellcheck.languages:
