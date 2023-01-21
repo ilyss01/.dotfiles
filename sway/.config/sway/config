@@ -1,5 +1,4 @@
-# i3 config file (v4)
-# -> sway config file (vidk)
+# sway config file (vidk)
 set $mod Mod4
 set $left h
 set $down j
@@ -8,6 +7,7 @@ set $right l
 set $term alacritty
 set $menu wofi -S drun
 font pango: Fira Code 8
+xwayland disable
 
 #
 # Names for default workspaces 
@@ -26,8 +26,8 @@ set $ws10 "10"
 #
 # Workspace setup
 #
-workspace 1 output HDMI-A-1
-workspace 2 output eDP-1
+#workspace 1 output HDMI-A-1
+#workspace 2 output eDP-1
 
 #
 # Autostart 
@@ -37,24 +37,28 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY \
 					XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec wl-paste -t text --watch clipman store --no-persist
-exec ~/.config/sway/ryzen.sh
+#exec wl-paste -t text --watch clipman store --no-persist
 exec gammastep
 
 #
 # Bar
 #
 exec waybar
-exec --no-startup-id 'nm-applet --indicator'
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id 'nm-applet --indicator'
+exec --no-startup-id 'blueman-applet'
 
 #
-# Swaylock and swayidle setup
+# Swayidle and swaynag setup
 #
 exec swayidle -w \
 	timeout 300 'swaylock -f -c 002b36' \
 	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 002b36'
+bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
+                    -b "Shutdown" "shutdown now" \
+                    -b "Reboot" "reboot" \
+                    -b "Suspend" "killall swaynag; systemctl suspend" \
+                    -b "Lock" "swaylock -f -c 002b36; killall swaynag" 
 
 #
 # Keyboard setup
@@ -76,30 +80,11 @@ seat * hide_cursor 180000
 #
 # Screen setup
 #
-output "eDP-1" {
-    mode 1920x1080@60.012Hz
-    pos 1920 0
-    transform normal
-    scale 1.0
-    scale_filter nearest
-    adaptive_sync off
-    dpms on
-}
-
-output "HDMI-A-1" {
-    mode 1920x1080@60.0Hz
-    pos 0 0
-    transform normal
-    scale 1.0
-    scale_filter nearest
-    adaptive_sync off
-    dpms on
-}
 
 #
 # Wallpaper
 #
-set $wallpapers_path $HOME/Pictures/Wallpaper/
+set $wallpapers_path $HOME/pictures/wallpaper/
 output * bg `find $wallpapers_path -type f | shuf -n 1` fill
 
 #
@@ -152,7 +137,7 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right 
 
 #
-# Alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys
 #
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -244,12 +229,12 @@ bindsym	$mod+Shift+r reload
 #
 # Lock screen
 #
-bindsym --to-code $mod+q exec swaylock -f -c 002b36
+#bindsym --to-code $mod+q exec swaylock -f -c 002b36
 
 #
 # Exit sway 
 #
-bindsym $mod+Escape exec wlogout
+#bindsym $mod+Escape exec wlogout
 
 #
 # Resize window (you can also use the mouse for that)
@@ -282,9 +267,5 @@ client.focused             #1793D0   #1793D0    #FFFFFF
 client.focused_inactive    #000000   #333333    #FFFFFF
 client.unfocused           #000000   #333333    #FFFFFF
 client.urgent              #FF0000   #FF0000    #FF0000
-
-#
-assign [app_id="Telegram"] 9
-assign [app_id="WebCord"] 9
 
 include /etc/sway/config.d/*
