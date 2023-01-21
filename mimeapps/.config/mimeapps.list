@@ -4,15 +4,11 @@ application/pdf=org.pwmt.zathura.desktop
 image/jpeg=imv.desktop
 image/png=imv.desktop
 image/jpg=imv.desktop
-text/html=chromium.desktop
-x-scheme-handler/http=chromium.desktop
-x-scheme-handler/https=chromium.desktop
-x-scheme-handler/about=chromium.desktop
-x-scheme-handler/unknown=chromium.desktop
-application/x-osu-skin-archive=osu-lazer.desktop
-application/x-osu-replay=osu-lazer.desktop
-application/x-osu-beatmap-archive=osu-lazer.desktop
-x-scheme-handler/osu=osu-lazer.desktop
+text/html=qutebrowser.desktop
+x-scheme-handler/http=qutebrowser.desktop
+x-scheme-handler/https=qutebrowser.desktop
+x-scheme-handler/about=qutebrowser.desktop
+x-scheme-handler/unknown=qutebrowser.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-UV8NQ1.desktop;
