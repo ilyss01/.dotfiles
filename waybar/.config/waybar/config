@@ -7,9 +7,9 @@
     "modules-left": [
     	"sway/workspaces"
     ],
-    "modules-center": [
-    	"sway/window"
-    ],
+    //"modules-center": [
+    	//"sway/window"
+    //],
     "modules-right": [
     "pulseaudio", 
     "cpu", 
