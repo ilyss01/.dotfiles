@@ -12,6 +12,7 @@ export EDITOR=nvim
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export PATH=/home/ilyss/.local/bin/:$PATH
+export XDG_CURRENT_DESKTOP=sway
 
 # Export application files
 export EDITOR="nvim"
@@ -21,7 +22,7 @@ export EDITOR="nvim"
 alias ls=exa
 alias cdc="cd ~/.config/"
 alias cdd="cd ~/dotfiles/"
-# Paru aliases
+# Package manager aliases
 alias pS="sudo pacman -S"
 alias pR="sudo pacman -R"
 alias pSyu="sudo pacman -Syu"
@@ -36,15 +37,17 @@ alias swayc="nvim ~/.config/sway/config"
 alias waybarc="nvim ~/.config/waybar/config"
 alias zshc="nvim ~/.zshrc"
 alias n=nvim
+alias r=ranger
 alias py=python
 # Swayhide aliases
-alias imv="swayhide imv"
+#alias imv="swayhide imv"
 #alias mpv="swayhide mpv"
-alias zathura="swayhide zathura"
+#alias zathura="swayhide zathura"
 alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
 
 # Autoexec sway
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    export XDG_SESSION_TYPE=wayland
 	exec sway
 fi
 
