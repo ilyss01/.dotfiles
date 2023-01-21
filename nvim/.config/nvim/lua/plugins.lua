@@ -3,6 +3,8 @@ return require('packer').startup(function(use)
   -- https://github.com/wbthomason/packer.nvim
   use 'wbthomason/packer.nvim'
 
+  use 'rust-lang/rust.vim'
+
   -- https://github.com/echasnovski/mini.nvim
   use { 'echasnovski/mini.nvim', branch = 'stable' }
   require('mini.completion').setup({})
