@@ -9,8 +9,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Export global variables
 export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=nvim
+export QT_QPA_PLATFORM="wayland;xcb"
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORMTHEME="qt5ct"
 export PATH=/home/ilyss/.local/bin/:$PATH
 export XDG_CURRENT_DESKTOP=sway
 
@@ -44,6 +44,7 @@ alias py=python
 #alias mpv="swayhide mpv"
 #alias zathura="swayhide zathura"
 alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
+alias gp="git push git@github.com:ilyss01/dotfiles.git"
 
 # Autoexec sway
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
