@@ -7,7 +7,7 @@ set $right l
 set $term alacritty
 set $menu wofi -S drun
 font pango: Fira Code 8
-xwayland disable
+#xwayland disable
 
 #
 # Names for default workspaces 
@@ -32,12 +32,8 @@ set $ws10 "10"
 #
 # Autostart 
 #
-exec dex --autostart --environment i3
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY \
-					XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-#exec wl-paste -t text --watch clipman store --no-persist
 exec gammastep
 
 #
@@ -58,7 +54,7 @@ bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
                     -b "Shutdown" "shutdown now" \
                     -b "Reboot" "reboot" \
                     -b "Suspend" "killall swaynag; systemctl suspend" \
-                    -b "Lock" "swaylock -f -c 002b36; killall swaynag" 
+                    -b "Lock" "swaylock -f -c 002b36; killall swaynag"
 
 #
 # Keyboard setup
