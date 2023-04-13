@@ -3,19 +3,21 @@ compinit
 promptinit
 
 # Autosuggestions
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Export global variables
+export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR=nvim
 export QT_QPA_PLATFORM="wayland;xcb"
-export MOZ_ENABLE_WAYLAND=1
 export PATH=/home/ilyss/.local/bin/:$PATH
 export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
 
 # Export application files
 export EDITOR="nvim"
+
+export PATH=/home/ilyss/.cargo/bin:$PATH
 
 # Alias
 # Dirs
@@ -44,16 +46,16 @@ alias py=python
 #alias mpv="swayhide mpv"
 #alias zathura="swayhide zathura"
 alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
-alias gp="git push git@github.com:ilyss01/dotfiles.git"
+alias gs="git status"
+alias gc="git commit"
 
 # Autoexec sway
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    export XDG_SESSION_TYPE=wayland
 	exec sway
 fi
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.bash_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob
