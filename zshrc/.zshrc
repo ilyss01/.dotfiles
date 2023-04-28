@@ -16,7 +16,6 @@ export XDG_SESSION_TYPE=wayland
 
 # Export application files
 export EDITOR="nvim"
-
 export PATH=/home/ilyss/.cargo/bin:$PATH
 
 # Alias
@@ -64,9 +63,6 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ilyss/.zshrc'
-
-autoload -Uz compinit
-compinit
 
 # Prompt
 PROMPT='%n@%m %~ '
