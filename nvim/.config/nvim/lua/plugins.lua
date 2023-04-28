@@ -10,7 +10,11 @@ return require('packer').startup(function(use)
   require('mini.surround').setup({})
   --require('mini.terminals').setup({})
   
+  -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
   require'lspconfig'.rust_analyzer.setup({})
+  require'lspconfig'.pylsp.setup{}
+  --require'lspconfig'.clandg.setup{}
+  require'lspconfig'.gopls.setup{}
   
 end)
