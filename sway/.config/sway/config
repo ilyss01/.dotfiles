@@ -26,8 +26,10 @@ set $ws10 "10"
 #
 # Workspace setup
 #
-#workspace 1 output HDMI-A-1
-#workspace 2 output eDP-1
+output eDP-1 pos 0 0
+output HDMI-A-2 pos 1920 0
+workspace 1 output HDMI-A-1
+workspace 2 output eDP-1
 
 #
 # Autostart 
@@ -51,7 +53,7 @@ exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 002b36'
 bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
-                    -b "Shutdown" "shutdown now" \
+                    -b "Shutdown" "poweroff" \
                     -b "Reboot" "reboot" \
                     -b "Suspend" "killall swaynag; systemctl suspend" \
                     -b "Lock" "swaylock -f -c 002b36; killall swaynag"
