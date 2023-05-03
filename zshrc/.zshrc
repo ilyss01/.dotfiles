@@ -49,9 +49,7 @@ alias gs="git status"
 alias gc="git commit"
 
 # Autoexec sway
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	exec sway
-fi
+[ "$(tty)" = "/dev/tty1" ] && exec sway
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.bash_history
