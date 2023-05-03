@@ -1,6 +1,7 @@
 {
     "layer": "top", 
     "position": "top", // top|bottom|left|right
+    "output": "eDP-1",
     "height": 18, 
     "spacing": 4, // gaps between modules 
 
