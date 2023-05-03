@@ -53,8 +53,8 @@ exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 002b36'
 bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
-                    -b "Shutdown" "poweroff" \
-                    -b "Reboot" "reboot" \
+                    -b "Shutdown" "systemctl poweroff" \
+                    -b "Reboot" "systemctl reboot" \
                     -b "Suspend" "killall swaynag; systemctl suspend" \
                     -b "Lock" "swaylock -f -c 002b36; killall swaynag"
 
