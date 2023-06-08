@@ -1,26 +1,24 @@
 {
     "layer": "top", 
-    "position": "top", // top|bottom|left|right
-    "output": "eDP-1",
-    "height": 18, 
+    "position": "top",
+    "height": 15, 
     "spacing": 4, // gaps between modules 
 
     "modules-left": [
-    	"sway/workspaces"
+        "wlr/workspaces"
     ],
-    //"modules-center": [
-    	//"sway/window"
-    //],
+
     "modules-right": [
     "pulseaudio", 
     "cpu", 
     "memory", 
     "backlight", 
     "keyboard-state", 
-    "sway/language", 
+    "hyprland/language",
     "battery", 
     "clock", 
-    "tray"],
+    "tray"
+    ],
 
     // MODULES //
 
@@ -49,6 +47,12 @@
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["", ""]
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "US",
+        "format-ru": "RU",
     },
 
     "battery": {

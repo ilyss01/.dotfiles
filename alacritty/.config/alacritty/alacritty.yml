@@ -3,7 +3,7 @@
 font:
   # Normal (roman) font face
   normal:
-    family: "Fira Code"
+    family: "Jet Brains Mono"
     style: Regular
   bold:
     family: "Fira Code"

@@ -9,6 +9,5 @@ x-scheme-handler/http=qutebrowser.desktop
 x-scheme-handler/https=qutebrowser.desktop
 x-scheme-handler/about=qutebrowser.desktop
 x-scheme-handler/unknown=qutebrowser.desktop
-
-[Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-UV8NQ1.desktop;
+text/x-shellscript=text.desktop
+text/plain=text.desktop
