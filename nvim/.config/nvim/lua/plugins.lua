@@ -1,20 +1,34 @@
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  -- https://github.com/wbthomason/packer.nvim
-  use 'wbthomason/packer.nvim'
+vim.cmd [[packadd packer.nvim]]
 
-  -- https://github.com/echasnovski/mini.nvim
-  use { 'echasnovski/mini.nvim', branch = 'stable' }
-  require('mini.completion').setup({})
-  require('mini.pairs').setup({})
-  require('mini.surround').setup({})
-  --require('mini.terminals').setup({})
-  
-  -- https://github.com/neovim/nvim-lspconfig
-  --use 'neovim/nvim-lspconfig'
-  --require'lspconfig'.rust_analyzer.setup({})
-  --require'lspconfig'.pylsp.setup{}
-  --require'lspconfig'.clandg.setup{}
-  --require'lspconfig'.gopls.setup{}
-  
+return require('packer').startup(function(use)
+    -- Package manager
+    -- https://github.com/wbthomason/packer.nvim
+    use 'wbthomason/packer.nvim'
+
+    -- Make nvim code editor
+    -- https://github.com/echasnovski/mini.nvim
+    use 'echasnovski/mini.nvim'
+
+    -- Pretty syntax highlighting
+    -- https://github.com/nvim-treesitter/nvim-treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+    -- Global search of file and their content
+    -- https://github.com/nvim-telescope/telescope.nvim
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    -- LSP
+    -- https://github.com/neovim/nvim-lspconfig
+    use 'neovim/nvim-lspconfig'
+
+    -- Zettelkasten
+    -- https://github.com/mickael-menu/zk-nvim
+    use 'mickael-menu/zk-nvim' 
+
 end)
