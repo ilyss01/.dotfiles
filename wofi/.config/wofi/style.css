@@ -1,8 +1,9 @@
 window {
-    font-family: "Ubuntu";
-    font-weight: bold;
+    font-family: "Jet Brains Mono";
+    /* font-weight: regular;*/
     background-color: #002b36;
     color: #93a1a1;
+    border-radius: 10px;
 }
 
 #input {
