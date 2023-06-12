@@ -1,0 +1,30 @@
+#!/usr/bin/zsh
+
+# Neat
+alias lf="lfcd"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias cp="cp -i" 
+alias mv="mv -i" 
+alias rm="rm -I" 
+alias mkdir="mkdir -pv" 
+alias cdc="cd ~/.config/"
+alias cdd="cd ~/.dotfiles/"
+alias yt="ytfzf"
+alias ytm="ytfzf -m"
+alias ka="killall"
+alias wttr="curl wttr.in/Murmansk"
+
+# Package manager aliases
+alias pS="sudo pacman -S"
+alias pR="sudo pacman -R"
+alias pSyu="sudo pacman -Syu"
+alias pOrphan="sudo pacman -Qtdq | sudo pacman -Rns -"
+
+# Comfortable access to configs
+alias alacc="nvim ~/.config/alacritty/alacritty.yml"
+alias waybarc="nvim ~/.config/waybar/config"
+alias n="nvim"
+alias py="python"
+alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
+alias gs="git status"
+alias gc="git commit"
