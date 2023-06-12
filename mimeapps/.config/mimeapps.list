@@ -1,13 +1,21 @@
 [Default Applications]
-x-scheme-handler/tg=userapp-Telegram Desktop-UV8NQ1.desktop
-application/pdf=org.pwmt.zathura.desktop
-image/jpeg=imv.desktop
-image/png=imv.desktop
-image/jpg=imv.desktop
+text/x-shellscript=text.desktop
+text/plain=text.desktop
+
+application/postscript=pdf.desktop
+application/pdf=pdf.desktop
+
+image/jpeg=img.desktop
+image/png=img.desktop
+image/jpg=img.desktop
+image/gif=img.desktop
+
+video/x-matroska=video.desktop
+video/mp4=video.desktop
+
 text/html=qutebrowser.desktop
 x-scheme-handler/http=qutebrowser.desktop
 x-scheme-handler/https=qutebrowser.desktop
 x-scheme-handler/about=qutebrowser.desktop
 x-scheme-handler/unknown=qutebrowser.desktop
-text/x-shellscript=text.desktop
-text/plain=text.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-UV8NQ1.desktop
