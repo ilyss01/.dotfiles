@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video &
