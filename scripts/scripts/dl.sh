@@ -1,4 +1,5 @@
 #!/usr/bin/sh
+# For personal music library automatization
 
 cd temp
 rm -rf *
