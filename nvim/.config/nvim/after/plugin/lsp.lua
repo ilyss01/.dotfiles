@@ -3,9 +3,13 @@ local lsp = require'lspconfig'
 
 -- LSP's
 lsp.rust_analyzer.setup{}
+
 lsp.clangd.setup{}
+
 lsp.texlab.setup{}
+
 lsp.pylsp.setup{}
+
 require'zk'.setup({
   picker = 'telescope',
   lsp = {
