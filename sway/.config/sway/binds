@@ -1,0 +1,151 @@
+#
+# Use pactl to adjust volume in PulseAudio.
+#
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
+
+#
+# Brightness controll
+#
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod normal
+
+#
+# Start a terminal
+#
+bindsym $mod+Return exec $term
+
+#
+# Kill focused window
+#
+bindsym --to-code $mod+Shift+q kill
+
+#
+# Menu launcher
+#
+bindsym $mod+d exec $menu
+
+#
+# Change focus
+#
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right 
+
+#
+# Move focused window
+#
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right 
+
+#
+# Layout
+#
+bindsym --to-code $mod+x splith
+bindsym --to-code $mod+z splitv 
+
+#
+# Enter fullscreen mode for the focused container
+#
+#bindsym $mod+f fullscreen 
+
+#
+# Change container layout (stacked, tabbed, toggle split)
+#
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split 
+
+#
+# Toggle tiling / floating
+#
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+#
+# Screenshot scipt, copied from sway wiki
+#
+bindsym --release $mod+Shift+s exec ~/.config/sway/screenshot.sh -s -m region -o ~/pictures
+
+#
+# Switch to workspace
+#
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+#
+# Move focused container to workspace
+#
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+#
+# Alt-tab functionality
+#
+bindsym alt+tab workspace next_on_output 
+
+#
+# Restart sway inplace 
+#
+bindsym	$mod+Shift+r reload
+
+#
+# Lock screen
+#
+#bindsym --to-code $mod+q exec swaylock -f -c 002b36
+
+#
+# Exit sway 
+#
+#bindsym $mod+Escape exec wlogout
+
+#
+# Resize window (you can also use the mouse for that)
+#
+mode "Resize" {
+    # Resize windows
+    # bindsym $left resize shrink width 10px
+    # bindsym $down resize grow height 10px
+    # bindsym $up resize shrink height 10px
+    # bindsym $right resize grow width 10px
+
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "Resize"
+
+bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
+                    -b "Shutdown" "systemctl poweroff" \
+                    -b "Reboot" "systemctl reboot" \
+                    -b "Suspend" "killall swaynag; systemctl suspend" \
+                    -b "Lock" "swaylock -f -c 002b36; killall swaynag"
+

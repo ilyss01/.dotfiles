@@ -1,4 +1,3 @@
-# sway config file (vidk)
 set $mod Mod4
 set $left h
 set $down j
@@ -8,6 +7,8 @@ set $term alacritty
 set $menu wofi -S drun
 font pango: Fira Code 8
 #xwayland disable
+
+include ~/.config/sway/autostart
 
 #
 # Names for default workspaces 
@@ -26,244 +27,31 @@ set $ws10 "10"
 #
 # Workspace setup
 #
-output eDP-1 pos 0 0
-output HDMI-A-2 pos 1920 0
-workspace 1 output HDMI-A-1
-workspace 2 output eDP-1
+output eDP-1 pos 0 0 scale 1.1 adaptive_sync on
 
-#
-# Autostart 
-#
-exec systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec gammastep
-
-#
-# Bar
-#
-exec waybar
-exec_always --no-startup-id 'nm-applet --indicator'
-exec --no-startup-id 'blueman-applet'
-
-#
-# Swayidle and swaynag setup
-#
-exec swayidle -w \
-	timeout 300 'swaylock -f -c 002b36' \
-	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f -c 002b36'
-bindsym $mod+q exec swaynag -t warning -m "What would you want to do?" \
-                    -b "Shutdown" "systemctl poweroff" \
-                    -b "Reboot" "systemctl reboot" \
-                    -b "Suspend" "killall swaynag; systemctl suspend" \
-                    -b "Lock" "swaylock -f -c 002b36; killall swaynag"
-
-#
-# Keyboard setup
-#
 input type:keyboard {
     xkb_layout "us,ru"
     xkb_variant "colemak,"
     xkb_options "grp:alt_shift_toggle"
 }
 
-#
-# Touchpad setup
-#
 input type:touchpad { 
     tap enabled
 }   
 seat * hide_cursor 180000
 
-#
-# Screen setup
-#
-
-#
-# Wallpaper
-#
-set $wallpapers_path $HOME/pictures/wallpaper/
-output * bg `find $wallpapers_path -type f | shuf -n 1` fill
-
-#
-# Gaps and mouse
-#
 gaps inner 5
 gaps outer 5
 default_border pixel 2
 focus_follows_mouse no
 
-#
-# Use pactl to adjust volume in PulseAudio.
-#
-set $refresh_waybar killall --SIGUSR1 waybar
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_waybar
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_waybar
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_waybar
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_waybar
-
-#
-# Brightness controll
-#
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod normal
-
-#
-# Start a terminal
-#
-bindsym $mod+Return exec $term
-
-#
-# Kill focused window
-#
-bindsym --to-code $mod+Shift+q kill
-
-#
-# Menu launcher
-#
-bindsym $mod+d exec $menu
-
-#
-# Change focus
-#
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right 
-
-#
-# Alternatively, you can use the cursor keys
-#
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-#
-# Move focused window
-#
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right 
-
-#
-# Alternatively, you can use the cursor keys:
-#
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-#
-# Layout
-#
-bindsym --to-code $mod+x splith
-bindsym --to-code $mod+z splitv 
-
-#
-# Enter fullscreen mode for the focused container
-#
-bindsym $mod+f fullscreen 
-
-#
-# Change container layout (stacked, tabbed, toggle split)
-#
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split 
-
-#
-# Toggle tiling / floating
-#
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-
-#
-# Screenshot scipt, copied from sway wiki
-#
-bindsym --release $mod+Shift+s exec ~/.config/sway/screenshot.sh copy area
-
-#
-# Switch to workspace
-#
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-
-#
-# Move focused container to workspace
-#
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
-
-#
-# Alt-tab functionality
-#
-bindsym alt+tab workspace next_on_output 
-
-#
-# Restart sway inplace 
-#
-bindsym	$mod+Shift+r reload
-
-#
-# Lock screen
-#
-#bindsym --to-code $mod+q exec swaylock -f -c 002b36
-
-#
-# Exit sway 
-#
-#bindsym $mod+Escape exec wlogout
-
-#
-# Resize window (you can also use the mouse for that)
-#
-mode "Resize" {
-    # Resize windows
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "Resize"
-
-#
-# Colors for solarized
-#
-
 # Color Class               Border      BG         FG
-client.focused             #1793D0   #1793D0    #FFFFFF
-client.focused_inactive    #000000   #333333    #FFFFFF
-client.unfocused           #000000   #333333    #FFFFFF
-client.urgent              #FF0000   #FF0000    #FF0000
+client.focused             #fdf6e3   #fdf6e3    #073642
+client.focused_inactive    #fdf6e3   #073642    #fdf6e3
+client.unfocused           #073642   #073642    #fdf6e3
+#client.urgent             #FF0000   #FF0000    #FF0000
 
+include ~/.config/sway/binds
 include /etc/sway/config.d/*
+
+for_window [app_id="blueman-applet"] kill

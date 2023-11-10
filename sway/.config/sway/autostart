@@ -1,0 +1,16 @@
+#
+# Autostart 
+#
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec gammastep
+exec udiskie -N
+exec bluetoothctl power off
+exec waybar -c ~/.config/waybar/sway.conf
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 002b36' \
+	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 002b36'
+
+set $wallpapers_path $HOME/pictures/wallpapers
+output * bg `find $wallpapers_path -type f | shuf -n 1` fill
+
