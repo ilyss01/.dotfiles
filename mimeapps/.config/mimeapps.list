@@ -4,6 +4,7 @@ text/plain=text.desktop
 
 application/postscript=pdf.desktop
 application/pdf=pdf.desktop
+application/x-keepass2=keepassxc.desktop
 
 image/jpeg=img.desktop
 image/png=img.desktop
