@@ -157,7 +157,7 @@ fi
 CLIPBOARD=0
 DEBUG=0
 SILENT=0
-FILENAME="$(date +'%Y-%m-%d-%H%M%S_hyprshot.png')"
+FILENAME="$(date +'%Y-%m-%d-%H%M%S.png')"
 [ -z "$HYPRSHOT_DIR" ] && SAVEDIR=${XDG_PICTURES_DIR:=~} || SAVEDIR=${HYPRSHOT_DIR}
 
 args $0 "$@"
