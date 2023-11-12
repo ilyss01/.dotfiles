@@ -1,0 +1,30 @@
+[[language]]
+name = "latex"
+formatter = { command = 'prettier', args = ["--parser", "latex-parser"] }
+auto-format = true
+
+[language-server.texlab.config.texlab.build]
+forwardSearchAfter = true
+onSave = true
+
+executable = "latexmk"
+args = [
+ "-pdf",
+ "-interaction=nonstopmode",
+ "-synctex=1",
+ "-shell-escape",
+ "-output-directory=build",
+ "%f"
+]
+
+[language-server.texlab.config.texlab]
+auxDirectory = "build"
+
+[language-server.texlab.config.texlab.chktex]
+onOpenAndSave = true
+onEdit = true
+
+[language-sesrver.texlive.config.texlab.forwardSearch]
+executable = "zathura"
+args = [ "--synctex-forward", "%l:%c:%f", "%p" ]
+
