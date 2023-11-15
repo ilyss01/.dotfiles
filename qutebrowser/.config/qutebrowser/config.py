@@ -1,6 +1,10 @@
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
-# Base16 qutebrowser template by theova
-# Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
+# Scheme name: Solarized Dark
+# Scheme author: Ethan Schoonover (modified by aramisgithub)
+# Template author: theova
+# Commentary: Tinted Theming: (https://github.com/tinted-theming)
+
+config.load_autoconfig()
 
 base00 = "#002b36"
 base01 = "#073642"
@@ -298,5 +302,3 @@ c.colors.tabs.selected.even.bg = base02
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # c.colors.webpage.bg = base00
-
-config.load_autoconfig()
