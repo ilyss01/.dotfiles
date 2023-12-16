@@ -113,6 +113,10 @@
             "format-ru": "RU",
         },
 
+        "hyprland/workspaces": {
+            "all-outputs": "true"
+        },
+
         "bluetooth": {
             "format": "",
             "format-connected": "{device_alias} ",
