@@ -2,13 +2,21 @@ theme = "solarized_dark"
 
 [editor]
 mouse = true
-cursor-shape = { insert = "bar" }
 #indent = 4
 color-modes = true
 true-color = true
 soft-wrap.enable = true
 indent-guides.render = true
 #indent-guides.skip-levels = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+auto-signature-help = false
+display-messages = true
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
