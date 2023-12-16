@@ -21,3 +21,5 @@ settings:
     global: true
   scrolling.smooth:
     global: true
+  zoom.default:
+    global: 90%
