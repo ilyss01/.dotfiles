@@ -1,16 +1,13 @@
 #!/usr/bin/zsh
 
 # Neat
+alias sudo="sudo -E"
 alias lf="lfcd"
 alias ls="ls -hN --color=auto --group-directories-first"
-# alias cp="cp -i" 
-# alias mv="mv -i" 
-# alias rm="rm -I" 
-# alias mkdir="mkdir -pv" 
+alias mkdir="mkdir -p" 
 alias cdc="cd ~/.config/"
 alias cdd="cd ~/.dotfiles/"
 alias yt="ytfzf"
-alias ytm="ytfzf -m"
 alias ka="killall"
 #alias clang="clang --std=c17 -Wall -Werror -Wpedantic"
 #alias clang="clang --std=c17 -Wall -Werror"
@@ -22,12 +19,10 @@ alias pR="sudo pacman -R"
 alias pSyu="sudo pacman -Syu"
 alias pOrphan="sudo pacman -Qtdq | sudo pacman -Rns -"
 
-# Comfortable access to configs
-alias alacc="$EDITOR ~/.config/alacritty/alacritty.yml"
-alias waybarc="$EDITOR ~/.config/waybar/config"
 alias h="helix"
-alias k="kak"
+#alias k="kak"
 #alias n="nvim"
 alias py="python"
 alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
 alias lg="lazygit"
+alias tw="taskwarrior-tui"
