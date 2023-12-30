@@ -2,16 +2,20 @@
 font:
   # Normal (roman) font face
   normal:
-    family: "Jet Brains Mono"
+    family: "Fira Code"
+    #family: "Jet Brains Mono"
     style: Regular
   bold:
-    family: "Jet Brains Mono"
+    family: "Fira Code"
+    #family: "Jet Brains Mono"
     style: Bold
   italic:
-    family: "Jet Brains Mono"
+    family: "Fira Code"
+    #family: "Jet Brains Mono"
     style: Italic
   bold_italic:
-    family: "Jet Brains Mono"
+    family: "Fira Code"
+    #family: "Jet Brains Mono"
     style: Bold Italic
   size: 16
 
@@ -49,6 +53,6 @@ key_bindings:
   - { key: C, mods: Control, action: Copy }
   - { key: C, mods: Control|Shift, chars: "\x03" }
 
-env:
-  LC_ALL: "en_US.UTF-8"
+#env:
+  #LC_ALL: "en_US.UTF-8"
 
