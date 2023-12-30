@@ -1,8 +1,10 @@
 set icons
 set drawbox
+set autoquit true
 set sixel
-set previewer ~/.config/lf/preview
+set previewer ~/.config/lf/previewer
 
 map . set hidden!
 map d
 map dd delete
+map f $vi $(fzf)
