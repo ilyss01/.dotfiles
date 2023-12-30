@@ -1,5 +1,6 @@
 * {
-    font-family: Nerd, Roboto;
+    /* font-family: Nerd, Roboto; */
+    font-family: Fira Code;
     font-size: 13px;
 }
 
@@ -170,6 +171,11 @@ label:focus {
 }
 
 #language {
+    background-color: #2aa198;
+    min-width: 16px;
+}
+
+#custom-wttr {
     background-color: #2aa198;
     min-width: 16px;
 }
