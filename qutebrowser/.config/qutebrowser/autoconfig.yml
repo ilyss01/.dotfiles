@@ -17,6 +17,8 @@ settings:
         ',m': spawn mpv {url}
   content.autoplay:
     global: false
+  content.javascript.clipboard:
+    global: access
   qt.highdpi:
     global: true
   scrolling.smooth:
