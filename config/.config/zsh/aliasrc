@@ -1,0 +1,29 @@
+#!/usr/bin/zsh
+
+# Neat
+#alias sudo="sudo -E"
+alias sudo="doas"
+alias lf="lfcd"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias mkdir="mkdir -p" 
+alias cdc="cd ~/.config/"
+alias cdd="cd ~/.dotfiles/"
+alias yt="ytfzf"
+alias ka="killall"
+#alias clang="clang --std=c17 -Wall -Werror -Wpedantic"
+#alias clang="clang --std=c17 -Wall -Werror"
+alias wttr="curl wttr.in/Murmansk"
+
+# Package manager aliases
+alias pS="doas pacman -S"
+alias pR="doas pacman -R"
+alias pSyu="doas pacman -Syu"
+alias pOrphan="doas pacman -Qtdq | doas pacman -Rns -"
+
+alias h="helix"
+#alias k="kak"
+#alias n="nvim"
+alias py="python"
+alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
+alias lg="lazygit"
+alias tw="taskwarrior-tui"

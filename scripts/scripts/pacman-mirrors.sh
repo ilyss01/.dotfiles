@@ -1,5 +1,5 @@
 #!/usr/bin/sh
 # Choosing best mirror for pacman
 
-sudo reflector
-sudo pacman -Syyu
+doas reflector
+doas pacman -Syyu
