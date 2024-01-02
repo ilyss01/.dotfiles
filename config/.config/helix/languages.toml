@@ -30,6 +30,7 @@ onEdit = true
 
 [[language]]
 name = "c"
+auto-format = true
 
 [language-server.clangd.config]
 fallbackFlags = ["-std=c17"]
