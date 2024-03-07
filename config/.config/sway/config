@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term foot
 set $menu wofi -S drun
 font pango: Fira Code 8
 #xwayland disable
@@ -27,7 +27,8 @@ set $ws10 "10"
 #
 # Workspace setup
 #
-output eDP-1 pos 0 0 scale 1.1 adaptive_sync on
+output eDP-1 pos 1920 0 scale 1.1 adaptive_sync on
+output HDMI-A-2 pos 0 0 scale 1 adaptive_sync on
 
 input type:keyboard {
     xkb_layout "us,ru"
@@ -39,6 +40,10 @@ input type:touchpad {
     tap enabled
 }   
 seat * hide_cursor 180000
+
+input type:mouse {
+    accel_profile "flat"
+}
 
 gaps inner 5
 gaps outer 5
@@ -54,4 +59,4 @@ client.unfocused           #073642   #073642    #fdf6e3
 include ~/.config/sway/binds
 include /etc/sway/config.d/*
 
-for_window [app_id="blueman-applet"] kill
+#for_window [app_id="blueman-applet"] kill
