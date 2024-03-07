@@ -17,9 +17,10 @@ xorg-xwayland
 $pS light fish \
 keepassxc qutebrowser wofi chromium lazygit ytfzf taskwarrior-tui stow \
 imv telegram-desktop libreoffice-fresh texlive diskonaut reflector yt-dlp \
-fwupd{,-efi} pulsemixer texlive-lang kvantum wine-{staging,nine,mono} \
-jrnl
+fwupd{,-efi} pulsemixer texlive-lang kvantum jrnl
 
+# wine
+$pS wine-{staging,nine,mono} giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \ mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \ lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo \ sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama \ ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 \ lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 
 # lf
 $pS lf zathura{,-pdf-poppler} bat mpv helix chafa lynx poppler \
@@ -38,7 +39,8 @@ $pS qemu-desktop virt-manager libvirt dnsmasq
 $pS rustup clang gcc lldb llvm-libs ghc rust-analyzer \
 valgrind texlab taplo haskell-language-server \
 python yapf autopep8 flake8 \
-python-{lsp-server,mccabe,pycodestyle,pydocstyle,pyflakes,pylint,rope,whatthepatch}
+python-{lsp-server,mccabe,pycodestyle,pydocstyle,pyflakes,pylint,rope,whatthepatch} \
+meson
 
 # codecs
 $pS flac wavpack a52dec libdca libmad libmpcdec \
@@ -53,5 +55,15 @@ intel-media-driver libva-intel-driver
 doas systemctl enable {fstrim.timer,acpid.service,libvirtd.service,NetworkManager.service,systemd-timesyncd.service,tlp.service}
 
 # system things
-echo "permit nopass :wheel" > /etc/doas.conf
-echo "vm.swappiness = 3" > /etc/sysctl.d/99-swappiness.conf
+#echo "permit nopass :wheel" > /etc/doas.conf
+#echo "vm.swappiness = 3" > /etc/sysctl.d/99-swappiness.conf
+#echo if [[ -z "$XDG_CONFIG_HOME" ]]
+#then
+        #export XDG_CONFIG_HOME="$HOME/.config/"
+#fi
+
+#if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
+#then
+        #export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+#fi
+#echo "ZDOTDIR=$HOME/.config/zsh" > /etc/zsh/zshenv
