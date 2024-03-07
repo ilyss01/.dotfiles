@@ -32,7 +32,9 @@
             "format": "",
             "format-connected": "{device_alias} ",
             "format-connected-battery": "{device_alias} {device_battery_percentage}% ",
-            "on-click": "foot -e bluetoothctl"
+            "on-click": "foot -e bluetoothctl",
+            "on-scroll-up": "bluetoothctl power on; bluetoothctl scan on; bluetoothctl connect  41:42:15:DA:70:F4",
+            "on-scroll-down": "bluetoothctl power off"
         },
 
         "wireplumber": {
