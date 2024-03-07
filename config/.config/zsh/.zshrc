@@ -1,22 +1,22 @@
-setopt autocd interactive_comments
-stty stop undef		# Disable ctrl-s to freeze terminal.
+autoload -U compinit colors
+setopt autocd interactive_comments 
+# stty stop undef # Disable ctrl-s to freeze terminal.
 PROMPT='%n@%m %~ '
-
-# History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE="$XDG_CACHE_HOME/zsh/history"
+colors
 
 # Load aliases and shortcuts 
-source "$XDG_CONFIG_HOME/zsh/aliasrc"
-source "$XDG_CONFIG_HOME/zsh/profile"
+source "$HOME/.config/zsh/aliasrc"
+source "$HOME/.config/zsh/profile"
+
+# History in cache directory
+HISTSIZE=10000000
+SAVEHIST=10000000
 
 # Basic auto/tab complete
-autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files
+compinit 
+_comp_options+=(globdots) # Include hidden files
 
 # vi mode
 bindkey -v
@@ -37,21 +37,12 @@ function zle-keymap-select () {
     esac
 }
 zle -N zle-keymap-select
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
 
-lfcd () {
-    tmp="$(mktemp)"
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    command lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-# Load syntax highlighting; should be last.
-#source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# zoxide
+eval "$(zoxide init zsh)"
+
+# Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=gray,bg=dark,underline"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)

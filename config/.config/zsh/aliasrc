@@ -1,9 +1,7 @@
 #!/usr/bin/zsh
 
 # Neat
-#alias sudo="sudo -E"
 alias sudo="doas"
-alias lf="lfcd"
 alias ls="ls -hN --color=auto --group-directories-first"
 alias mkdir="mkdir -p" 
 alias cdc="cd ~/.config/"
@@ -20,10 +18,27 @@ alias pR="doas pacman -R"
 alias pSyu="doas pacman -Syu"
 alias pOrphan="doas pacman -Qtdq | doas pacman -Rns -"
 
-alias h="helix"
-#alias k="kak"
-#alias n="nvim"
+# alias h="helix"
+alias k="kak"
+alias n="nvim"
 alias py="python"
 alias lofi="mpv 'https://www.youtube.com/watch?v=jfKfPfyJRdk' --no-video"
 alias lg="lazygit"
-alias tw="taskwarrior-tui"
+alias todo="taskwarrior-tui"
+alias upd="doas pacman -Syu; ~/scripts/fwupd.sh"
+alias latexmk="latexmk -pdf -output-directory=build"
+alias zettel="cd ~/notes; $EDITOR index.md"
+
+# lf
+lfcd () {
+    tmp="$(mktemp -uq)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+alias lf="lfcd"
+bindkey -s '^O' '^lfcd\n'
+

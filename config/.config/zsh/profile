@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Default programs
-export EDITOR="helix"
+export EDITOR="kak"
 export TERMINAL="foot"
 export BROWSER="chromium"
 
@@ -31,3 +31,6 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export TASKRC="$XDG_CONFIG_HOME/"
 export TASKDATA="$XDG_DATA_HOME/task/"
+
+# [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+# [ "$(tty)" = "/dev/tty1" ] && exec sway
