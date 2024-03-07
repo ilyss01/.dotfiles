@@ -1,10 +1,68 @@
-set icons
-set drawbox
-set autoquit true
-set sixel
+# zsh thing
+set shell zsh
+set shellopts '-euy'
+set ifs "\n"
+set filesep "\n"
+
+# graphics things
+set icons 
+set sixel 
+set drawbox 
+set autoquit 
 set previewer ~/.config/lf/previewer
+
+cmd open ${{
+	case $(file --mime-type "$(readlink -f $f)" -b) in
+		image/vnd.djvu | application/pdf | application/octet-stream | application/postscript)
+			zathura "$fx" >/dev/null 2>&1
+			;;
+        text/* | application/json | inode/x-empty | application/x-subrip | application/javascript | application/pgp-encrypted)
+			$EDITOR $fx
+			;;
+		image/*)
+			imv $fx
+			;;
+		video/*)
+			mpv $fx -quiet 
+			;;
+		application/vnd.openxmlformats-officedocument.wordprocessingml.document | application/vnd.oasis.opendocument.text | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | application/octet-stream | application/vnd.oasis.opendocument.spreadsheet | application/vnd.oasis.opendocument.spreadsheet-template | application/vnd.openxmlformats-officedocument.presentationml.presentation | application/vnd.oasis.opendocument.presentation-template | application/vnd.oasis.opendocument.presentation | application/vnd.ms-powerpoint | application/vnd.oasis.opendocument.graphics | application/vnd.oasis.opendocument.graphics-template | application/vnd.oasis.opendocument.formula | application/vnd.oasis.opendocument.database)
+			libreoffice $fx
+			;;
+		*)
+			xdg-open "$fx"
+			;;
+	esac
+}}
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	[ $ans = "y" ] && {
+		case $fx in
+			*.tar.bz2)   tar xjf $fx     ;;
+			*.tar.gz)    tar xzf $fx     ;;
+			*.bz2)       bunzip2 $fx     ;;
+			*.rar)       unrar e $fx     ;;
+			*.gz)        gunzip $fx      ;;
+			*.tar)       tar xf $fx      ;;
+			*.tbz2)      tar xjf $fx     ;;
+			*.tgz)       tar xzf $fx     ;;
+			*.zip)       unzip $fx       ;;
+			*.Z)         uncompress $fx  ;;
+			*.7z)        7z x $fx        ;;
+			*.tar.xz)    tar xf $fx      ;;
+		esac
+	}
+}}
 
 map . set hidden!
 map d
 map dd delete
-map f $vi $(fzf)
+map ge bottom
+map f $xdg-open "$(fzf)"
+#map o open "$f"
+map o &mimeopen "$f"
+map E extract
