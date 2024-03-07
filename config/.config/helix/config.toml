@@ -2,12 +2,12 @@ theme = "solarized_dark"
 
 [editor]
 mouse = true
-#indent = 4
+# indent = 4
 color-modes = true
 true-color = true
 soft-wrap.enable = true
 indent-guides.render = true
-#indent-guides.skip-levels = true
+# indent-guides.skip-levels = true
 auto-format = true
 auto-completion = true
 
@@ -25,3 +25,7 @@ esc = ["collapse_selection", "keep_primary_selection"]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 "#" = "toggle_comments"
+
+[keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
