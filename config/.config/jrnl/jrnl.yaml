@@ -5,15 +5,15 @@ colors:
   title: cyan
 default_hour: 12
 default_minute: 0
-editor: helix
+editor: nvim
 encrypt: false
 highlight: true
 indent_character: '|'
 journals:
   default:
-    journal: /home/ilyss/.local/share/jrnl/journal.txt
+    journal: "~/.local/share/jrnl/journal.md"
 linewrap: 79
 tagsymbols: '#@'
-template: false
-timeformat: '%X %x'
+template: "~/.local/share/jrnl/template.md"
+timeformat: '%H:%M %d.%m.%Y'
 version: v4.1
