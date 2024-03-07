@@ -1,57 +1,117 @@
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-    -- Package manager
-    -- https://github.com/wbthomason/packer.nvim
-    use 'wbthomason/packer.nvim'
-
-    -- Make nvim code editor
-    -- https://github.com/echasnovski/mini.nvim
-    use 'echasnovski/mini.nvim'
-
-    -- Pretty syntax highlighting
-    -- https://github.com/nvim-treesitter/nvim-treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+-- lazy.nvim
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system {
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
     }
+end
+vim.opt.rtp:prepend(lazypath)
 
-    -- Global search of file and their content
-    -- https://github.com/nvim-telescope/telescope.nvim
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+-- Plugins
+require("lazy").setup({
+    -- Key hints
+    {
+        "folke/which-key.nvim",
+        opts = {}
+    },
+
+    -- Colorscheme
+    {
+        "Tsuzat/NeoSolarized.nvim",
+        lazy = false,
+        priority = 1000,
+        terminal_colors = true,
+        enable_italics = true,
+        style = "dark",
+        config = function()
+            vim.cmd.colorscheme("NeoSolarized")
+        end
+    },
+
+    -- Better highlighting
+    {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = { "lua", "c", "python", "rust", "markdown", "toml", "latex", "haskell" },
+                ignore_install = { "cpp" },
+                indent = { enable = true },
+                sync_install = false,
+                auto_install = true,
+                highlight = {
+                    enable = true,
+                    use_languagetree = true,
+                    additional_vim_regex_highlighting = { "markdown" },
+                },
+            })
+        end,
+    },
+
+    -- Wiki
+    {
+        "serenevoid/kiwi.nvim",
+        lazy = true,
+        opts = {
+            {
+                name = "notes",
+                path = "/home/ilyss/notes"
+            },
+        },
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
     -- LSP
-    -- https://github.com/neovim/nvim-lspconfig
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    use 'neovim/nvim-lspconfig'
-
-    -- Zettelkasten
-    -- https://github.com/mickael-menu/zk-nvim
-    use 'mickael-menu/zk-nvim' 
-
-    -- Nice
-    use {
-        "folke/which-key.nvim",
+    {
+        "neovim/nvim-lspconfig",
+        opts = {},
         config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+            local lspconfig = require("lspconfig")
+            lspconfig.clangd.setup({})
+            lspconfig.gopls.setup({})
+            lspconfig.pylsp.setup({})
+            lspconfig.rust_analyzer.setup({})
+            lspconfig.lua_ls.setup({})
+            lspconfig.texlab.setup({})
+            lspconfig.hls.setup({})
+            lspconfig.marksman.setup({})
+        end,
+    },
+
+    -- Completion
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            { "hrsh7th/cmp-nvim-lsp", opts = {} },
+            { "hrsh7th/cmp-path" },
+        },
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                }),
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                }, {
+                        { name = "buffer" },
+                    })
+            })
+        end,
     }
-    local wk = require("which-key")
-    wk.register(mappings, opts)
 
-    use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-cmdline'
-
-end)
+},{})
