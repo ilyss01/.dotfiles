@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Text Editor
-Exec=foot -e helix %u
+Exec=foot -e kak %u
